@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dental World Clinic</title>
   <link rel="stylesheet" href="css/user.css">
+<<<<<<< HEAD
   <style>
 
     /* Basic styling for the modal */
@@ -74,6 +75,8 @@
 
 
   </style>
+=======
+>>>>>>> 04a963522ee7d69e1ea82b3357c2b82ca97189d1
 </head>
 <body>
   <header>
@@ -147,7 +150,6 @@
               placeholder="Full Name"
               required
           >
-
           <label for="phone">Contact No.</label>
           <input
               type="tel"
@@ -204,6 +206,7 @@
               <option value="16:00">4:00 PM</option>
               <option value="17:00">5:00 PM</option>
           </select>
+<<<<<<< HEAD
             <center>
             <!-- Payment Button -->
             <button style="margin-top: 10px; " type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
@@ -212,6 +215,14 @@
             </center>
          
 
+=======
+
+          <!-- Payment Button -->
+           <br><br>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
+              Payment
+          </button>
+>>>>>>> 04a963522ee7d69e1ea82b3357c2b82ca97189d1
           <!-- Modal -->
           <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -245,10 +256,18 @@
                               accept="image/png, image/jpeg, image/jpg" />
 
                       </div>
+<<<<<<< HEAD
                       <div class="modal-footer justify-content">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button style="margin-left: 5px; margin-bottom: -1px;" class="btn btn-primary" type="submit" id="bookButton">Book</button>
                     </div>
+=======
+                      <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-primary" type="submit1" id="bookButton">Book</button>
+                        {{-- <button type="button" class="btn btn-primary">Submit</button> --}}
+                      </div>
+>>>>>>> 04a963522ee7d69e1ea82b3357c2b82ca97189d1
                   </div>
               </div>
           </div>

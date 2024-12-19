@@ -71,3 +71,4 @@ Route::post('/appointments/update-status', [AppointmentController::class, 'updat
 Route::get('/get-booked-times', [AppointmentController::class, 'getBookedTimes']);
 
 Route::post('/fetch-booked-times', [AppointmentController::class, 'fetchBookedTimes'])->name('fetch.booked.times');
+Route::get('/reports', [ReportController::class, 'index'])->name('reports');

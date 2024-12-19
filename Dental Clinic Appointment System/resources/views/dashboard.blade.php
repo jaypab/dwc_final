@@ -87,7 +87,7 @@
     <div class="sidebar">
         <div class="profile-section">
             <img src="https://via.placeholder.com/80?text=Photo" alt="Profile Photo" class="profile-photo">
-            <div class="name">Admin Name</div>
+            <p>{{ Auth::user()->first_name }}</p>
             <div class="email"> @if (Auth::check())
                 <p>{{ Auth::user()->email }}</p>
             @else
@@ -99,7 +99,7 @@
         <div class="nav-links">
             <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>
             <a href="{{ route('appointments') }}" class="nav-link">Appointments</a>
-            <a href="{{ route('reports.index') }}" class="nav-link">Reports</a>
+            <a href="{{ route('reports') }}" class="nav-link">Reports</a>
             <a href="{{ route('history') }}" class="nav-link">History</a>
             
         </div><hr>
@@ -123,15 +123,13 @@
     <div class="revenue-list" style="max-height: 250px; overflow-y: auto; border: 1px solid #ddd;">
         <table class="table table-bordered">
             <thead>
+                
                 <tr>
-                    <th>Appointment ID</th>
-                    <th>Amount</th>
                 </tr>
             </thead>
             <tbody>
             @foreach($appointments as $appointment)
                     <tr>
-                    <td>{{ $appointment->id }}</td>
                     <td>{{ $appointment->amount }}</td>
                     </tr>
                 @endforeach

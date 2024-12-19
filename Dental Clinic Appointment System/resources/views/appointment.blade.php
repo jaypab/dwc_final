@@ -116,13 +116,12 @@
     <div class="sidebar">
         <div class="profile-section">
             <img src="https://via.placeholder.com/80?text=Photo" alt="Profile Photo" class="profile-photo">
-            <div class="name">Admin Name</div>
+            <p>{{ Auth::user()->first_name }}</p>
             <div class="email"> @if (Auth::check())
                 <p>{{ Auth::user()->email }}</p>
-                @else
+            @else
                 <p>Welcome, Guest!</p>
-                @endif
-            </div>
+            @endif</div>
 
         </div>
         <hr>
@@ -198,7 +197,7 @@
                         <td class="status-column">
                             <select class="status-dropdown" data-id="{{ $appointment->id }}">
                                 <option value="Cancelled" {{ $appointment->status == 'Cancelled' ? 'selected' : '' }}>Cancelled</option>
-                                <option value="Confirmed" {{ $appointment->status == 'Confirmed' ? 'selected' : '' }}>Confirmed</option>
+                                <optaion value="Confirmed" {{ $appointment->status == 'Confirmed' ? 'selected' : '' }}>Confirmed</option>
                                 <option value="Reschedule" {{ $appointment->status == 'Reschedule' ? 'selected' : '' }}>Reschedule</option>
                                 <option value="No show" {{ $appointment->status == 'No show' ? 'selected' : '' }}>No Show</option>
                             </select>
@@ -428,3 +427,4 @@
         }
     }
 </script>
+

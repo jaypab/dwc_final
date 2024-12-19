@@ -62,7 +62,7 @@
     <div class="sidebar">
         <div class="profile-section">
             <img src="https://via.placeholder.com/80?text=Photo" alt="Profile Photo" class="profile-photo">
-            <div class="name">Admin Name</div>
+            <p>{{ Auth::user()->first_name }}</p>
             <div class="email"> @if (Auth::check())
                 <p>{{ Auth::user()->email }}</p>
             @else
