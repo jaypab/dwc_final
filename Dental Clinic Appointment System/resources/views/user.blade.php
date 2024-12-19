@@ -19,7 +19,7 @@
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
+    padding-top: 20px;
 }
 
 .modal-content {
@@ -54,33 +54,72 @@
     .modal-footer .btn {
     min-width: 100px;
 }
+.navdiv {
+    display: flex;
+    justify-content: space-between; /* Logo on the left, user section on the right */
+    align-items: center; /* Vertically align items */
+    padding: 10px 20px;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between email and logout button */
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+
   </style>
 </head>
 <body>
-  <nav class="navbaruser">
+  <header>
     <nav class="navbar">
-      <div class="navdiv">
-        <div class="logo">
-          <a href="#">
-            <img src="Documentation/logo.png" alt="Dental World Clinic Logo">
-            <span>Dental World Clinic</span>
-          </a>
-        </div>
+        <div class="navdiv">
+            <!-- Logo Section -->
+            <div class="logo">
+                <a href="#">
+                    <img src="Documentation/logo.png" alt="Dental World Clinic Logo">
+                    <span>Dental World Clinic</span>
+                </a>
+            </div>
 
-        <ul>
-          <div  class="email"> @if (Auth::check())
-            <p>Hello, {{ Auth::user()->email }}</p>
-        @else
-            <p>Welcome, Guest!</p>
-        @endif</div>
-        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-            @csrf
-            <button type="submit">Logout</button>
-        </form>
-        </ul>
-      </div>
+            <!-- User Section -->
+            <div style="
+            position:absolute;
+            right: 10px;
+            top: 10px
+
+            "  class="user-section">
+                <!-- Email Display -->
+                <div class="email">
+                    @if (Auth::check())
+                        <p>Hello, {{ Auth::user()->email }}</p>
+                    @else
+                        <p>Welcome, Guest!</p>
+                    @endif
+                </div>
+
+                <!-- Logout Button -->
+                <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                    @csrf
+                    <button style="
+                    position:absolute;
+                    right: 10px;
+                    top: 10px
+
+                    " type="submit" class="btn btn-sm btn-danger">Logout</button>
+                </form>
+            </div>
+        </div>
     </nav>
-  </nav>
+</header>
+
+
+
   @if (session('success'))
     <div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 10px; border: 1px solid #c3e6cb;">
         {{ session('success') }}
@@ -165,11 +204,13 @@
               <option value="16:00">4:00 PM</option>
               <option value="17:00">5:00 PM</option>
           </select>
-
-          <!-- Payment Button -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
+            <center>
+            <!-- Payment Button -->
+            <button style="margin-top: 10px; " type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
               Payment
-          </button>
+            </button>
+            </center>
+         
 
           <!-- Modal -->
           <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
@@ -204,11 +245,10 @@
                               accept="image/png, image/jpeg, image/jpg" />
 
                       </div>
-                      <div class="modal-footer justify-content-around">
+                      <div class="modal-footer justify-content">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button class="btn btn-primary" type="submit" id="bookButton">Book</button>
-                        {{-- <button type="button" class="btn btn-primary">Submit</button> --}}
-                      </div>
+                        <button style="margin-left: 5px; margin-bottom: -1px;" class="btn btn-primary" type="submit" id="bookButton">Book</button>
+                    </div>
                   </div>
               </div>
           </div>

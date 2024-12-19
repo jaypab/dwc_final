@@ -185,7 +185,11 @@
                         <td>{{ date('h:i A', strtotime($appointment->time)) }}</td>
                         
                         <td>
-                            <img src="{{ Storage::url($appointment->file) }}" alt="Uploaded Image" style="max-width: 200px; max-height: 200px;">
+                            <img 
+                                src="{{ Storage::url($appointment->file) }}" 
+                                alt="Uploaded Image" 
+                                style="max-width: 200px; max-height: 200px; cursor: pointer;" 
+                                onclick="showImageModal(this.src)">
                         </td>
 
 
@@ -210,8 +214,6 @@
         </div>
     </div>
 </body>
-
-</html>
 <!-- Reschedule Modal -->
 <center>
     <div id="rescheduleModal" class="modal">
@@ -255,6 +257,26 @@
         </div>
     </div>
 </center>
+<!-- Modal for image zoom -->
+<div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center;">
+    <img id="modalImage" src="" style="max-width: 90%; max-height: 90%; border: 2px solid white;">
+    <button style="position: absolute; top: 20px; right: 20px; background-color: white; border: none; font-size: 20px; cursor: pointer;" onclick="closeImageModal()">Close</button>
+</div>
+</html>
+<script>
+    function showImageModal(imageSrc) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        
+        modalImage.src = imageSrc;
+        modal.style.display = 'flex';
+    }
+
+    function closeImageModal() {
+        const modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+    }
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Reschedule Modal Elements
