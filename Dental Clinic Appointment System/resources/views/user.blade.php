@@ -5,56 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dental World Clinic</title>
   <link rel="stylesheet" href="css/user.css">
-  <style>
-
-    /* Basic styling for the modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-}
-
-.close {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    right: 15px;
-    top: 0;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#viewAppointmentModal button {
-    margin-top: 20px;
-}
-
-    .modal-footer .btn {
-    min-width: 100px;
-}
-  </style>
 </head>
 <body>
   <nav class="navbaruser">
@@ -68,11 +18,7 @@
         </div>
 
         <ul>
-          <div  class="email"> @if (Auth::check())
-            <p>Hello, {{ Auth::user()->email }}</p>
-        @else
-            <p>Welcome, Guest!</p>
-        @endif</div>
+          
         <form action="{{ route('logout') }}" method="POST" style="display: inline;">
             @csrf
             <button type="submit">Logout</button>
@@ -81,6 +27,12 @@
       </div>
     </nav>
   </nav>
+  <center>
+  <div  class="first_name"> @if (Auth::check())
+            <h2>Hello, {{ Auth::user()->first_name }}</h2>
+        @else
+            <p>Welcome, Guest!</p></center>
+        @endif</div>
   @if (session('success'))
     <div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 10px; border: 1px solid #c3e6cb;">
         {{ session('success') }}
@@ -108,7 +60,6 @@
               placeholder="Full Name"
               required
           >
-
           <label for="phone">Contact No.</label>
           <input
               type="tel"
@@ -167,10 +118,10 @@
           </select>
 
           <!-- Payment Button -->
+           <br><br>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
               Payment
           </button>
-
           <!-- Modal -->
           <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -204,9 +155,9 @@
                               accept="image/png, image/jpeg, image/jpg" />
 
                       </div>
-                      <div class="modal-footer justify-content-around">
+                      <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button class="btn btn-primary" type="submit" id="bookButton">Book</button>
+                        <button class="btn btn-primary" type="submit1" id="bookButton">Book</button>
                         {{-- <button type="button" class="btn btn-primary">Submit</button> --}}
                       </div>
                   </div>
